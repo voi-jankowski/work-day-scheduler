@@ -1,59 +1,76 @@
+:root {
+  --grey: rgb(211, 200, 185);
+  --red: rgb(210, 0, 26);
+  --yellow: rgb(255, 222, 0);
+  --white: rgb(255, 250, 231);
+  --orange: rgb(249, 148, 23);
+}
+
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: sans-serif;
   font-size: 16px;
+  background-color: var(--white);
+
 }
 
 textarea {
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
-  border-left: 1px solid black;
+  border-left: 1px solid var(--white);
   padding: 10px;
 }
 
-.description {
+.event-descr {
   white-space: pre-wrap;
 }
 
 .time-block {
-  border-radius: 15px;
+  
 }
 
 .row {
-  border-top: 1px solid white;
+  
+  margin-top: 5px;
 }
 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+.day-time {
+  background-color: var(--yellow);
+  border-radius: 15px;
+  color: var(--red);
+  font-size: 18px;
+  padding-top: 21px;
+  font-weight: 900;
 }
 
-.past {
-  background-color: #d3d3d3;
+.past textarea {
+  background-color: var(--grey);
+  border-radius: 15px;
+  text-decoration: line-through;
+}
+
+.present textarea {
+  background-color: var(--red);
   color: white;
+  border-radius: 15px;
 }
 
-.present {
-  background-color: #ff6961;
+.future textarea {
+  background-color: var(--orange);
   color: white;
+  border-radius: 15px;
 }
 
-.future {
-  background-color: #77dd77;
-  color: white;
+.save-btn {
+  
+  border-radius: 15px;
+  background-color: var(--yellow);
+  color: var(--red);
+  font-weight: 900;
 }
 
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
-}
-
-.saveBtn i:hover {
+.save-btn:hover {
   font-size: 20px;
-  transition: all 0.3s ease-in-out;
+  color: var(--red);
+  border: var(--red) solid 1px;
 }
