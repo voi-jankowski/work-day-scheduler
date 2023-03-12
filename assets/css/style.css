@@ -1,11 +1,7 @@
+/* Colour palette sourced from https://colorhunt.co/palette/ede9d5e7ab9adf7857617143 */
+
 :root {
-  --grey: rgb(211, 200, 185);
-  
-  --yellow: rgb(255, 222, 0);
-  --white: rgb(255, 250, 231);
-  --orange: rgb(249, 148, 23);
-
-
+  --orange: rgb(218, 140, 45);
   --beige: rgb(237, 233, 213);
   --peach: rgb(231, 171, 154);
   --red: rgb(223, 120, 87);
@@ -20,37 +16,35 @@ body {
 
 }
 
-header {
-  background-color: ;
+.container-lg {
+  padding-bottom: 25px;
 }
+
 textarea {
-  background: transparent;
   border: none;
   resize: none;
-  border-left: 1px solid white;
   padding: 10px;
 }
 
 .event-descr {
-  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
 }
 
-.time-block {
-  
+.time-block textarea{
+  margin: 0 3px;
 }
 
 .row {
-  
   margin-top: 5px;
 }
 
 .day-time {
-  margin-right: 5px;
+  margin-right: 3px;
   background-color: var(--green);
   border-radius: 15px;
   color: white;
   font-size: 18px;
-  padding-top: 21px;
+  padding-top: 2px;
   font-weight: 900;
   }
 
@@ -78,7 +72,7 @@ textarea {
 }
 
 .save-btn {
-  margin-left: 5px;
+  margin-left: 3px;
   border-radius: 15px;
   background-color: var(--green);
   color: white;
@@ -87,6 +81,12 @@ textarea {
 
 .save-btn:hover {
   font-size: 20px;
-  color: var(--red);
-  border: var(--red) solid 1px;
+  color: white;
+  background-color: var(--orange);
 }
+
+@media (min-width: 576px) { 
+  .day-time {
+    padding-top: 21px;
+  }
+ }
