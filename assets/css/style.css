@@ -1,23 +1,33 @@
 :root {
   --grey: rgb(211, 200, 185);
-  --red: rgb(210, 0, 26);
+  
   --yellow: rgb(255, 222, 0);
   --white: rgb(255, 250, 231);
   --orange: rgb(249, 148, 23);
+
+
+  --beige: rgb(237, 233, 213);
+  --peach: rgb(231, 171, 154);
+  --red: rgb(223, 120, 87);
+  --green: rgb(97, 113, 67);
 }
 
 body {
-  font-family: sans-serif;
-  font-size: 16px;
-  background-color: var(--white);
+  font-family: 'Urbanist', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  background-color: white;
 
 }
 
+header {
+  background-color: ;
+}
 textarea {
   background: transparent;
   border: none;
   resize: none;
-  border-left: 1px solid var(--white);
+  border-left: 1px solid white;
   padding: 10px;
 }
 
@@ -35,37 +45,43 @@ textarea {
 }
 
 .day-time {
-  background-color: var(--yellow);
+  margin-right: 5px;
+  background-color: var(--green);
   border-radius: 15px;
-  color: var(--red);
+  color: white;
   font-size: 18px;
   padding-top: 21px;
   font-weight: 900;
-}
+  }
 
 .past textarea {
-  background-color: var(--grey);
+  background-color: var(--beige);
   border-radius: 15px;
   text-decoration: line-through;
+}
+
+.present {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .present textarea {
   background-color: var(--red);
   color: white;
+  font-weight: 500;
   border-radius: 15px;
 }
 
 .future textarea {
-  background-color: var(--orange);
-  color: white;
+  background-color: var(--peach);
   border-radius: 15px;
 }
 
 .save-btn {
-  
+  margin-left: 5px;
   border-radius: 15px;
-  background-color: var(--yellow);
-  color: var(--red);
+  background-color: var(--green);
+  color: white;
   font-weight: 900;
 }
 
