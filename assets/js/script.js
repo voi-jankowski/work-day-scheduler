@@ -4,6 +4,7 @@
 
 
 
+
 // Checks if the document is ready and executes the funtion every second to refresh the clock, so the time is up to date.
 $(document).ready(function()
 {
