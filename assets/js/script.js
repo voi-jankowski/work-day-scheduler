@@ -2,7 +2,15 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-
+var hour9 = $('#hour-9');
+var hour10 = $('#hour-10');
+var hour11 = $('#hour-11');
+var hour12 = $('#hour-12');
+var hour1 = $('#hour-1');
+var hour2 = $('#hour-2');
+var hour3 = $('#hour-3');
+var hour4 = $('#hour-4');
+var hour5 = $('#hour-5');
 
 
 // Checks if the document is ready and executes the funtion every second to refresh the clock, so the time is up to date.
