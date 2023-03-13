@@ -14,9 +14,10 @@ var hour5 = $('#hour-5');
 
 var schedulerList = $('#scheduler');
 
-// Set the variable to establish the number of hourly 
+// Set the variable to establish the number of time-blocks for the loop in getEvents function.
 var numHours = schedulerList.children().length;
 
+// Set the variable for all <div> elements inside the container.
 var listContents = schedulerList.contents('div');
 
 
@@ -51,22 +52,20 @@ function getEvents() {
         
         // displays them in the textareas.
         eventText.value = savedEvent;
-       
     }
     
-
 }
-
-
-
 
 // Save the text from event-descr in a local storage.
 
 function saveEvent(event) {
-    
+    // setting variable for the button that has been clicked.
     var buttonEl = $(event.target);
+    // Get the value from the textarea next to that button.
     var eventDescr = buttonEl.siblings('textarea').val();
+    // Get the id name of that button's time-block to set it as the key in the local storage.
     var eventHour = buttonEl.parents().attr('id');
+    
     localStorage.setItem(eventHour, eventDescr);
 }
 
