@@ -12,6 +12,23 @@ var hour3 = $('#hour-3');
 var hour4 = $('#hour-4');
 var hour5 = $('#hour-5');
 
+var schedulerList = $('#scheduler');
+// Set the variable to establish the number of hourly 
+var numHours = schedulerList.children().length;
+
+console.log(numHours);
+
+console.log($('.lead').text());
+var listContents = schedulerList.contents('div');
+console.log(listContents);
+
+event9 = listContents[0].children[1].value;
+
+// var event9 = $('#hour-9 textarea');
+console.log(event9);
+
+// event9.text('Try this!');
+// console.log(event9.text());
 
 // Checks if the document is ready and executes the funtion every second to refresh the clock, so the time is up to date.
 $(document).ready(function()
@@ -28,6 +45,25 @@ $(document).ready(function()
     }, 1000); 
 })
 
+// Renders the event-descr from the local storage and 
+
+function getEvents() {
+
+
+}
+
+// displays them in the textareas.
+
+for ( var i = 0; i < numHours; i++) {
+    var eventText = listContents[i].children[1].value;
+  
+}
+
+// Save the text from event-descr in a local storage.
+
+function saveEvent() {
+    
+}
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
