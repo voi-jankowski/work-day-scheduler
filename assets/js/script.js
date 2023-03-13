@@ -27,9 +27,15 @@ event9 = listContents[0].children[1].value;
 // var event9 = $('#hour-9 textarea');
 console.log(event9);
 
+var buttonEl9 = listContents[0].children[2];
+// var id9 = buttonEl9.sibling('textarea');
+console.log(buttonEl9);
+// console.log(id9);
+
 // event9.text('Try this!');
 // console.log(event9.text());
 
+// TODO: Add code to display the current date in the header of the page.
 // Checks if the document is ready and executes the funtion every second to refresh the clock, so the time is up to date.
 $(document).ready(function()
 {
@@ -61,8 +67,12 @@ for ( var i = 0; i < numHours; i++) {
 
 // Save the text from event-descr in a local storage.
 
-function saveEvent() {
+function saveEvent(event) {
     
+    var buttonEl = $(event.target);
+    var eventDescr = buttonEl.siblings('textarea').val();
+    var eventHour = buttonEl.parents().attr('id');
+    localStorage.setItem(eventHour, eventDescr);
 }
 
 $(function () {
@@ -87,3 +97,4 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+schedulerList.on('click', '.save-btn', saveEvent);
