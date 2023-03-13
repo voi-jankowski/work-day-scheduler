@@ -25,6 +25,7 @@ var listContents = schedulerList.contents('div');
 // Add variables for time
 var today = dayjs();
 var hourNow = today.format('H');
+console.log(hourNow);
 
 // Checks if the document is ready and executes the funtion every second to refresh the clock, so the time is up to date.
 $(document).ready(function()
@@ -56,12 +57,11 @@ function setColors() {
         // Use conditions to change class to past, present and future depending on the hourNow
      
         if (eventHour > hourNow && !listContents[i].classList.contains('future')) {
+            listContents[i].classList.add('future');
             if (listContents[i].classList.contains('past')) {
-                listContents[i].classList.add('future');
                 listContents[i].classList.remove('past');
             } 
             if (listContents[i].classList.contains('present')) {
-                listContents[i].classList.add('future');
                 listContents[i].classList.remove('present');
             } 
             
@@ -130,28 +130,7 @@ function saveEvent(event) {
     localStorage.setItem(eventHour, eventDescr);
 }
 
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-
-  
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
-});
+// Add event listener to save buttons in time-blocks;
 schedulerList.on('click', '.save-btn', saveEvent);
-
+//  When the page opens it loads the saved events onto scheduler.
 getEvents();
