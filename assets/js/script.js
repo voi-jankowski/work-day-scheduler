@@ -22,11 +22,15 @@ var listContents = schedulerList.contents('div');
 
 
 // TODO: Add code to display the current date in the header of the page.
+// Add variables for time
+var today = dayjs();
+var hourNow = today.format('H');
+
 // Checks if the document is ready and executes the funtion every second to refresh the clock, so the time is up to date.
 $(document).ready(function()
 {
     function setTime() {
-        var today = dayjs();
+        
         var timeNow = today.format('MMMM D, YYYY h:mm a');
         $('#date-time').text(timeNow);
     }
@@ -34,8 +38,65 @@ $(document).ready(function()
     setInterval(function()
     {
         setTime()
+        
     }, 1000); 
 })
+
+
+
+
+function setColors() {
+    for ( var i = 0; i < numHours; i++) {
+        // Set the variable to get the id name of each corresponding  time-block, which would be the relevant key value.
+        var eventId = listContents[i].getAttribute('id');
+    
+        // Use substring() method to extract the hour number only, it removes 'hour-' from each eventHour.
+        var eventHour = eventId.substring(5);   
+        console.log(eventHour);
+        // Use conditions to change class to past, present and future depending on the hourNow
+     
+        if (eventHour > hourNow && !listContents[i].classList.contains('future')) {
+            if (listContents[i].classList.contains('past')) {
+                listContents[i].classList.add('future');
+                listContents[i].classList.remove('past');
+            } 
+            if (listContents[i].classList.contains('present')) {
+                listContents[i].classList.add('future');
+                listContents[i].classList.remove('present');
+            } 
+            
+        }
+        
+        if (eventHour == hourNow && !listContents[i].classList.contains('present')) {
+            if (listContents[i].classList.contains('past')) {
+                listContents[i].classList.add('present');
+                listContents[i].classList.remove('past');
+            } 
+            if (listContents[i].classList.contains('future')) {
+                listContents[i].classList.add('present');
+                listContents[i].classList.remove('future');
+            } 
+            
+        }
+
+        if (eventHour < hourNow && !listContents[i].classList.contains('past')) {
+            if (listContents[i].classList.contains('present')) {
+                listContents[i].classList.add('past');
+                listContents[i].classList.remove('present');
+            } 
+            if (listContents[i].classList.contains('future')) {
+                listContents[i].classList.add('past');
+                listContents[i].classList.remove('future');
+            } 
+            
+        }
+    
+      
+    }
+}
+
+setColors();
+
 
 // Renders the event-descr from the local storage and 
 
@@ -65,7 +126,7 @@ function saveEvent(event) {
     var eventDescr = buttonEl.siblings('textarea').val();
     // Get the id name of that button's time-block to set it as the key in the local storage.
     var eventHour = buttonEl.parents().attr('id');
-    
+
     localStorage.setItem(eventHour, eventDescr);
 }
 

@@ -59,6 +59,8 @@ textarea {
   margin-bottom: 15px;
 }
 
+/* Add :click for textarea to highliht it when you type something */
+
 .present textarea {
   background-color: var(--red);
   color: white;
