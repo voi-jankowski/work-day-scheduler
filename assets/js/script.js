@@ -14,6 +14,8 @@ var hour5 = $('#hour-5');
 
 var schedulerList = $('#scheduler');
 
+console.log(schedulerList.children());
+
 // Set the variable to establish the number of time-blocks for the loop in getEvents function.
 var numHours = schedulerList.children().length;
 
@@ -38,8 +40,8 @@ $(document).ready(function()
 
     setInterval(function()
     {
-        setTime()
-        
+        setTime();
+        setColors();
     }, 1000); 
 })
 
@@ -51,12 +53,12 @@ function setColors() {
         // Set the variable to get the id name of each corresponding  time-block, which would be the relevant key value.
         var eventId = listContents[i].getAttribute('id');
     
-        // Use substring() method to extract the hour number only, it removes 'hour-' from each eventHour.
-        var eventHour = eventId.substring(5);   
-        console.log(eventHour);
+        // Use substring() method to extract the hour number only, it removes 'hour-' from each eventHour and then turn the string into a number.
+        var eventHour = parseInt(eventId.substring(5));   
+        
         // Use conditions to change class to past, present and future depending on the hourNow
      
-        if (eventHour > hourNow && !listContents[i].classList.contains('future')) {
+        if ((eventHour > hourNow) && !listContents[i].classList.contains('future')) {
             listContents[i].classList.add('future');
             if (listContents[i].classList.contains('past')) {
                 listContents[i].classList.remove('past');
@@ -91,11 +93,10 @@ function setColors() {
             
         }
     
-      
     }
 }
 
-setColors();
+
 
 
 // Renders the event-descr from the local storage and 
