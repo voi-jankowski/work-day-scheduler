@@ -13,27 +13,12 @@ var hour4 = $('#hour-4');
 var hour5 = $('#hour-5');
 
 var schedulerList = $('#scheduler');
+
 // Set the variable to establish the number of hourly 
 var numHours = schedulerList.children().length;
 
-console.log(numHours);
-
-console.log($('.lead').text());
 var listContents = schedulerList.contents('div');
-console.log(listContents);
 
-event9 = listContents[0].children[1].value;
-
-// var event9 = $('#hour-9 textarea');
-console.log(event9);
-
-var buttonEl9 = listContents[0].children[2];
-// var id9 = buttonEl9.sibling('textarea');
-console.log(buttonEl9);
-// console.log(id9);
-
-// event9.text('Try this!');
-// console.log(event9.text());
 
 // TODO: Add code to display the current date in the header of the page.
 // Checks if the document is ready and executes the funtion every second to refresh the clock, so the time is up to date.
@@ -54,16 +39,26 @@ $(document).ready(function()
 // Renders the event-descr from the local storage and 
 
 function getEvents() {
-
+    
+    // Set loop to fill all the time-blocks with saved events.
+    for ( var i = 0; i < numHours; i++) {
+        // Set the variable for the textarea in each time-block.   
+        var eventText = listContents[i].children[1];
+        // Set the variable to get the id name of each corresponding  time-block, which would be the relevant key value.
+        var eventKey = listContents[i].getAttribute('id');
+        // Render the saved event with that key value.
+        var savedEvent = localStorage.getItem(eventKey);
+        
+        // displays them in the textareas.
+        eventText.value = savedEvent;
+       
+    }
+    
 
 }
 
-// displays them in the textareas.
 
-for ( var i = 0; i < numHours; i++) {
-    var eventText = listContents[i].children[1].value;
-  
-}
+
 
 // Save the text from event-descr in a local storage.
 
@@ -98,3 +93,5 @@ $(function () {
   // TODO: Add code to display the current date in the header of the page.
 });
 schedulerList.on('click', '.save-btn', saveEvent);
+
+getEvents();
