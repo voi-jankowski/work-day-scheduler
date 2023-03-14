@@ -17,12 +17,16 @@ var schedulerList = $('#scheduler');
 console.log(schedulerList.children());
 
 // Set the variable to establish the number of time-blocks for the loop in getEvents function.
-var numHours = schedulerList.children().length;
-
+var numHours = $('#scheduler > div').length;
+console.log('Number of hours in time-blocks: ' + numHours);
 // Set the variable for all <div> elements inside the container.
-var listContents = schedulerList.contents('div');
-
-
+// var listContents = schedulerList.contents('div');
+var listContents = $('#scheduler > div');
+var oneChild = listContents[2];
+console.log(listContents);
+console.log(oneChild);
+// var eventId = $('#scheduler > div:nth-child(2)').attr('id');
+// console.log('Time-bloc id is: ' + eventId);
 // TODO: Add code to display the current date in the header of the page.
 // Add variables for time
 var today = dayjs();
@@ -41,7 +45,7 @@ $(document).ready(function()
     setInterval(function()
     {
         setTime();
-        setColors();
+        // setColors();
     }, 1000); 
 })
 
@@ -49,54 +53,55 @@ $(document).ready(function()
 
 
 function setColors() {
-    for ( var i = 0; i < numHours; i++) {
-        // Set the variable to get the id name of each corresponding  time-block, which would be the relevant key value.
-        var eventId = listContents[i].getAttribute('id');
-    
+
+    $.each(listContents, function() {
+         // Set the variable to get the id name of each corresponding  time-block, which would be the relevant key value.
+        var eventId = $(this).attr('id');
         // Use substring() method to extract the hour number only, it removes 'hour-' from each eventHour and then turn the string into a number.
         var eventHour = parseInt(eventId.substring(5));   
-        
+        console.log(eventHour);
+
         // Use conditions to change class to past, present and future depending on the hourNow
-     
-        if ((eventHour > hourNow) && !listContents[i].classList.contains('future')) {
-            listContents[i].classList.add('future');
-            if (listContents[i].classList.contains('past')) {
-                listContents[i].classList.remove('past');
+        if ((eventHour > hourNow) && !$(this).hasClass('future')) {
+            $(this).addClass('future');
+
+            if ($(this).hasClass('past')) {
+                $(this).removeClass('past');
             } 
-            if (listContents[i].classList.contains('present')) {
-                listContents[i].classList.remove('present');
-            } 
-            
-        }
-        
-        if (eventHour == hourNow && !listContents[i].classList.contains('present')) {
-            if (listContents[i].classList.contains('past')) {
-                listContents[i].classList.add('present');
-                listContents[i].classList.remove('past');
-            } 
-            if (listContents[i].classList.contains('future')) {
-                listContents[i].classList.add('present');
-                listContents[i].classList.remove('future');
+            if ($(this).hasClass('present')) {
+                $(this).removeClass('present');
             } 
             
         }
 
-        if (eventHour < hourNow && !listContents[i].classList.contains('past')) {
-            if (listContents[i].classList.contains('present')) {
-                listContents[i].classList.add('past');
-                listContents[i].classList.remove('present');
+        if (eventHour == hourNow && !$(this).hasClass('present')) {
+            $(this).addClass('present');
+
+            if ($(this).hasClass('past')) {
+                $(this).removeClass('past');
             } 
-            if (listContents[i].classList.contains('future')) {
-                listContents[i].classList.add('past');
-                listContents[i].classList.remove('future');
+            if ($(this).hasClass('future')) {
+                $(this).removeClass('future');
             } 
             
         }
+
+        if (eventHour < hourNow && !$(this).hasClass('past')) {
+            $(this).addClass('past');
+            
+            if ($(this).hasClass('present')) {
+                $(this).removeClass('present');
+            } 
+            if ($(this).hasClass('future')) {
+                $(this).removeClass('future');
+            } 
+            
+        }
+    })
     
-    }
 }
 
-
+setColors()
 
 
 // Renders the event-descr from the local storage and 
