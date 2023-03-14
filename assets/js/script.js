@@ -2,17 +2,20 @@
 var listContents = $('#scheduler > div');
 
 // Add variables for time
-var today = dayjs();
-var hourNow = today.format('H');
+var today;
+var hourNow;
 
 // Checks if the document is ready and executes the funtions every second to refresh the clock, so the time is up to date and time-block colours are assigned right.
 $(document).ready(function() {
 
     function setTime() {
-        
+
+        today = dayjs();
         var timeNow = today.format('MMMM D, YYYY h:mm:ss a');
         $('#date-time').text(timeNow);
+        
     }
+    
 
     setInterval(function() {
         
@@ -20,6 +23,7 @@ $(document).ready(function() {
         setColors();
         
     }, 1000); 
+    
 });
 
 
@@ -27,6 +31,7 @@ $(document).ready(function() {
 
 function setColors() {
 
+    hourNow = today.format('H'); 
     $.each(listContents, function() {
          // Set the variable to get the id name of each corresponding  time-block, which would be the relevant key value.
         var eventId = $(this).attr('id');
@@ -106,5 +111,7 @@ function saveEvent(event) {
 
 // Add event listener to save buttons in time-blocks;
 listContents.on('click', '.save-btn', saveEvent);
+
 //  When the page opens it loads the saved events onto scheduler.
 getEvents();
+

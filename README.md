@@ -6,7 +6,7 @@ Work Day Sceduler has been created to aid busy employees with their time managem
 
 ## Links
 
-Access the scheduler at [live page](https://voi-jankowski.github.io/code-quiz/) And here you can find the code for this project: [GitHub](https://github.com/voi-jankowski/work-day-scheduler)
+Access the scheduler at [live page](https://voi-jankowski.github.io/work-day-scheduler/) And here you can find the code for this project: [GitHub](https://github.com/voi-jankowski/work-day-scheduler)
 
 ## Installation
 
