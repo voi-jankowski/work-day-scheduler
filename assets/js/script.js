@@ -6,20 +6,21 @@ var today = dayjs();
 var hourNow = today.format('H');
 
 // Checks if the document is ready and executes the funtions every second to refresh the clock, so the time is up to date and time-block colours are assigned right.
-$(document).ready(function()
-{
+$(document).ready(function() {
+
     function setTime() {
         
-        var timeNow = today.format('MMMM D, YYYY h:mm a');
+        var timeNow = today.format('MMMM D, YYYY h:mm:ss a');
         $('#date-time').text(timeNow);
     }
 
-    setInterval(function()
-    {
+    setInterval(function() {
+        
         setTime();
         setColors();
+        
     }, 1000); 
-})
+});
 
 
 

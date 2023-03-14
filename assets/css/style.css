@@ -36,6 +36,7 @@ textarea {
 
 .row {
   margin-top: 5px;
+  justify-content: center;
 }
 
 .day-time {
@@ -45,7 +46,7 @@ textarea {
   color: white;
   font-size: 18px;
   padding-top: 2px;
-  font-weight: 900;
+  
   }
 
 .past textarea {
@@ -57,9 +58,9 @@ textarea {
 .present {
   margin-top: 15px;
   margin-bottom: 15px;
+
 }
 
-/* Add :click for textarea to highliht it when you type something */
 
 .present textarea {
   background-color: var(--red);
@@ -78,7 +79,7 @@ textarea {
   border-radius: 15px;
   background-color: var(--green);
   color: white;
-  font-weight: 900;
+  
 }
 
 .save-btn:hover {
