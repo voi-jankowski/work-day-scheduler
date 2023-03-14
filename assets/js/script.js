@@ -11,7 +11,7 @@ $(document).ready(function() {
     function setTime() {
 
         today = dayjs();
-        var timeNow = today.format('MMMM D, YYYY h:mm:ss a');
+        var timeNow = today.format('MMMM D, YYYY h:mm a');
         $('#date-time').text(timeNow);
         
     }
