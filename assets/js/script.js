@@ -5,7 +5,7 @@ var listContents = $('#scheduler > div');
 var today;
 var hourNow;
 
-// Checks if the document is ready and executes the funtions every second to refresh the clock, so the time is up to date and time-block colours are assigned right.
+// Checks if the document is ready and executes the funtions every minute to refresh the clock, so the time is up to date and time-block colours are assigned right.
 $(document).ready(function() {
 
     function setTime() {
@@ -22,7 +22,7 @@ $(document).ready(function() {
         setTime();
         setColors();
         
-    }, 1000); 
+    }, 60*1000); 
     
 });
 

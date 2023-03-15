@@ -14,7 +14,7 @@ N/A
 
 ## Usage
 
-When you open the page you can see the date and time in the header. The clock is live and it updated every second.
+When you open the page you can see the date and time in the header. The clock is live and it updated every minute.
 
 ![Opening of the page.](./assets/images/scheduler-1.png)
 
